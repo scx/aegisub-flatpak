@@ -13,30 +13,30 @@ build-options:
   env:
     agi_cv_with_openal: yes
 sources:
-  - type: archive
-    url: https://github.com/Aegisub/Aegisub/archive/v3.2.2.tar.gz
-    sha256: 62757dd491455268a240f983b59734a801cc2e899039a7493deeaf5e24a61dcd
+  #- type: archive
+  #  url: https://github.com/Aegisub/Aegisub/archive/v3.2.2.tar.gz
+  #  sha256: 62757dd491455268a240f983b59734a801cc2e899039a7493deeaf5e24a61dcd
   # Remove version postfix
-  - type: patch
-    path: aegisub-version-postfix.patch
+  #- type: patch
+  #  path: aegisub-version-postfix.patch
   # Add CFLAGS_PTHREAD/LIBS_PTHREAD to everything needing them
   # https://github.com/Aegisub/Aegisub/commit/ea43700531e3c9d45161d1fa5b30f0871066b011
   # https://github.com/Aegisub/Aegisub/commit/893b08a19c92353ba863ccb18d5d7671e39b602b
   # https://github.com/Aegisub/Aegisub/commit/b6c1bb146bfd8b15c02df40cc84ca2a8ad94d5ab
-  - type: patch
-    path: aegisub-makefile-pthread.patch
+  #- type: patch
+  #  path: aegisub-makefile-pthread.patch
   # Fix compilation against icu 59
   # https://github.com/Aegisub/Aegisub/commit/dd67db47cb2203e7a14058e52549721f6ff16a49
-  - type: patch
-    path: aegisub-icu-unistr.patch
+  #- type: patch
+  #  path: aegisub-icu-unistr.patch
   # Fix compilation against icu 61
   # https://github.com/Aegisub/Aegisub/commit/d4461f65be5aa440506bd23e90e71aaf8f0ebada
-  - type: patch
-    path: aegisub-icu-prefix.patch
+  #- type: patch
+  #  path: aegisub-icu-prefix.patch
   # Keep using std::distance after Boost 1.68
   # https://github.com/Aegisub/Aegisub/commit/d8336d2fed73c72d1227b343d6acfb991bc1651b
-  - type: patch
-    path: aegisub-std-distance.patch
+  #- type: patch
+  #  path: aegisub-std-distance.patch
   # Use system luajit
   # Remove vendor luajit dependency
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=892765
@@ -44,11 +44,11 @@ sources:
   # https://build.opensuse.org/package/view_file/multimedia:apps/aegisub/remove-vendor-luajit-dependency.patch
   # https://github.com/Aegisub/Aegisub/commit/0ed6dd46fbebdeed9f99ef250b6e2279e6fe17b8
   # https://github.com/Aegisub/Aegisub/commit/4c15d0ba8412055fe01e1ea626e674fa5d98bef1
-  - type: patch
-    path: aegisub-luajit-system.patch
-  #- type: git
-  #  url: https://github.com/Aegisub/Aegisub
-  #  commit: 2cb92a5f74634764ff5aac7e3ad0d647f98142af
+  #- type: patch
+  #  path: aegisub-luajit-system.patch
+  - type: git
+    url: https://github.com/Aegisub/Aegisub
+    commit: 2cb92a5f74634764ff5aac7e3ad0d647f98142af
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=873327#10
   # https://build.opensuse.org/package/view_file/multimedia:apps/aegisub/luabins.patch
   - type: patch

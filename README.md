@@ -84,11 +84,11 @@ $ flatpak-builder --repo="repo" --force-clean "build" "org.aegisub.Aegisub.yaml"
 ```
 
 ```
-$ flatpak --user remote-add --no-gpg-verify "aegisub" "repo"
+$ flatpak --user remote-add --no-gpg-verify "aegisub-wxwidgets3.1" "repo"
 ```
 
 ```
-$ flatpak --user install "aegisub" "org.aegisub.Aegisub"
+$ flatpak --user install "aegisub-wxwidgets3.1" "org.aegisub.Aegisub"
 ```
 
 ### Run
@@ -104,7 +104,7 @@ $ flatpak --user uninstall "org.aegisub.Aegisub"
 ```
 
 ```
-$ flatpak --user remote-delete "aegisub"
+$ flatpak --user remote-delete "aegisub-wxwidgets3.1"
 ```
 
 See also: [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
