@@ -111,7 +111,7 @@ See also: [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-
 
 ## FAQ
 
-### Why not use an RPM package?
+### Why not a RPM package?
 
 I already provided [COPR repo](https://copr.fedorainfracloud.org/coprs/scx/aegisub) with (S)RPM packages for EL.
 
