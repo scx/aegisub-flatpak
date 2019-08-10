@@ -88,11 +88,11 @@ $ flatpak-builder --repo="repo" --force-clean "build" "org.aegisub.Aegisub.yaml"
 ### Install
 
 ```
-$ flatpak --user remote-add --no-gpg-verify "aegisub" "repo"
+$ flatpak --user remote-add --no-gpg-verify "aegisub-wxgtk3" "repo"
 ```
 
 ```
-$ flatpak --user install "aegisub" "org.aegisub.Aegisub"
+$ flatpak --user install "aegisub-wxgtk3" "org.aegisub.Aegisub"
 ```
 
 ### Run
@@ -108,7 +108,7 @@ $ flatpak --user uninstall "org.aegisub.Aegisub"
 ```
 
 ```
-$ flatpak --user remote-delete "aegisub"
+$ flatpak --user remote-delete "aegisub-wxgtk3"
 ```
 
 ### Build single-file bundle
