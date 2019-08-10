@@ -51,6 +51,8 @@ $ flatpak install "flathub" "org.gnome.Sdk//3.30"
 $ flatpak install "flathub" "org.gnome.Platform//3.30"
 ```
 
+Clone this repository, then checkout the right branch.
+
 ```
 $ git submodule init
 ```
@@ -77,11 +79,13 @@ $ flatpak-builder --run "build" "org.aegisub.Aegisub.yaml" "sh"
 $ flatpak-builder --run "build" "org.aegisub.Aegisub.yaml" "aegisub"
 ```
 
-### Install
+### Create repo
 
 ```
 $ flatpak-builder --repo="repo" --force-clean "build" "org.aegisub.Aegisub.yaml"
 ```
+
+### Install
 
 ```
 $ flatpak --user remote-add --no-gpg-verify "aegisub-wxgtk2" "repo"
@@ -107,7 +111,23 @@ $ flatpak --user uninstall "org.aegisub.Aegisub"
 $ flatpak --user remote-delete "aegisub-wxgtk2"
 ```
 
-See also: [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
+### Build single-file bundle
+
+```
+$ flatpak build-bundle "repo" "aegisub.flatpak" "org.aegisub.Aegisub" --runtime-repo="https://flathub.org/repo/flathub.flatpakrepo"
+```
+
+### Install single-file bundle
+
+If you have already [installed](#install) the package, you have to [uninstall](#uninstall) it before continuing.
+
+```
+$ flatpak --user install "aegisub.flatpak"
+```
+
+See also:
+* [Building your first Flatpak](http://docs.flatpak.org/en/latest/first-build.html)
+* [Single-file bundles](http://docs.flatpak.org/en/latest/single-file-bundles.html#single-file-bundles)
 
 ## FAQ
 
