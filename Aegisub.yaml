@@ -69,8 +69,9 @@ sources:
     path: org.aegisub.Aegisub.appdata.xml
   # Update AppData file
   # Change the OARS rating due to disabling the update checker
-  - type: patch
-    path: aegisub-flatpak-appdata.patch
+  - type: shell
+    commands:
+      - xmlstarlet ed --inplace -d "/component/content_rating/content_attribute[@id='social-info']" "org.aegisub.Aegisub.appdata.xml";
   - type: shell
     commands:
       - cp -p /usr/share/automake-*/config.{sub,guess} .;

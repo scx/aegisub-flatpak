@@ -70,6 +70,7 @@ modules:
   - openal-soft.yaml
   - luajit.yaml
   - uchardet.yaml
+  - xmlstarlet.yaml
   - Aegisub.yaml
 cleanup:
   - /include
