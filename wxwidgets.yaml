@@ -7,7 +7,7 @@ config-opts:
   - --enable-display
   - --enable-propgrid
   - --enable-stc
-  - --with-gtk=3
+  - --with-gtk=2
   - --with-opengl
   - --with-libjpeg
   - --with-libpng

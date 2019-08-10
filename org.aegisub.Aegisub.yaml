@@ -10,11 +10,6 @@ finish-args:
   # X11 + XShm access
   - --share=ipc
   - --socket=x11
-  # Wayland access
-  # temporarily disabled
-  # wxGLCanvas doesn't work with Wayland yet
-  # https://trac.wxwidgets.org/ticket/17702
-  #- --socket=wayland
   # Audio access
   - --socket=pulseaudio
   # Filesystem access
@@ -31,6 +26,7 @@ finish-args:
   # LADSPA path
   - --env=LADSPA_PATH=/app/lib/ladspa
 modules:
+  - shared-modules/gtk2/gtk2.json
   - shared-modules/glu/glu-9.0.0.json
   - wxwidgets.yaml
   - boost.yaml
