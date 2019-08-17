@@ -49,6 +49,7 @@ sources:
   - type: git
     url: https://github.com/Aegisub/Aegisub
     commit: 2cb92a5f74634764ff5aac7e3ad0d647f98142af
+    disable-shallow-clone: true
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=873327#10
   # https://build.opensuse.org/package/view_file/multimedia:apps/aegisub/luabins.patch
   - type: patch
@@ -65,6 +66,12 @@ sources:
   # https://github.com/wangqr/Aegisub/commit/bb1f66a01f6e4661ab9c6610c5c2eee67bd0bd61
   - type: patch
     path: aegisub-boost-gil.patch
+  # Fix version string
+  # Use a more readable version string
+  # e.g. 3.2.2+r8947 instead of 8947-master-2cb92a5
+  # https://github.com/scx/Aegisub/commit/d24017d937a955be33e375a7bf1b82a953e4da6b
+  - type: patch
+    path: aegisub-version-git.patch
   - type: file
     path: org.aegisub.Aegisub.appdata.xml
   # Update AppData file
@@ -77,6 +84,13 @@ sources:
       - cp -p /usr/share/automake-*/config.{sub,guess} .;
       - autoreconf -vfi;
 post-install:
+  - |
+    git_version_str="$( jq -r '.BUILD_GIT_VERSION_STRING' "build/git_version.json" )";
+    git_version_date="$( jq -r '.BUILD_GIT_VERSION_DATE' "build/git_version.json" )";
+    git_version_strold="$( xmlstarlet sel -t -v '/component/releases/release[1]/@version' -n "org.aegisub.Aegisub.appdata.xml" )";
+    if [[ "${git_version_str}" != "" && "${git_version_date}" != ""  && "${git_version_str}" != "${git_version_strold}" ]]; then
+      xmlstarlet ed --inplace -i '/component/releases/release[1]' -t elem -n 'release' -s '/component/releases/release[1]' -t attr -n 'version' -v "${git_version_str}" -s '/component/releases/release[1]' -t attr -n 'date' -v "${git_version_date}" "org.aegisub.Aegisub.appdata.xml";
+    fi;
   - |
     icon_in="packages/desktop/scalable.svg";
     icon_out="aegisub.png";
